@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatures Translator</title>
+    <link rel="stylesheet" href="../temperature_translator/style.css">
+</head>
+<body>
+    <div>
+        <button 
+            class ="btn btn-primary"
+            type ="button"
+            onClick="changeOpacity()"
+            ondblclick="Opac()"
+        >
+            Transform Celsius to Farenheit
+        </button>
+        <button
+            class ="btn btn-primary"
+            type ="button"
+            onClick="changeOpacity()"
+            ondblclick="Opac()"
+        >
+            Transform Farenheit to Celsius
+        </button>
+    </div>
+    <div id="div1">
+        <div>
+            <label for=".input1"> Celsius temperature </label>
+            <input type="text", class="input1", value = "">  
+            <!-- selectarea temperaturii in grade Celsius -->
+        </div>
+        <div>
+            <label for=".input2"> Farenheit temperature </label>
+            <input type="text", class="input2", value = ""> 
+        </div>
+        <button 
+            class ="btn btn-primary"
+            type ="button"
+            onClick="calculate()"
+        >
+            Transform Celsius to Farenheit
+        </button>
+    </div>
+<script>
+    function $(param) {
+        return document.querySelector(param);
+    }
+
+    var input1 = $(".input1");
+    var input2 = $(".input2");
+
+   
+    function cTf (temp) {
+        var fT = (temp * 1.8 + 32);
+        return fT;
+    }
+       
+    function calculate() {
+        input2.value = cTf(input1.value);
+    }
+    
+    function changeOpacity(param) {
+        document.getElementById("div1").style.opacity = "1.0";
+    }
+    function Opac(param) {
+        document.getElementById("div1").style.opacity = "0.0";
+    }
+</script>
+
+</body>
+</html>
